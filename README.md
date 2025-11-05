@@ -1,16 +1,54 @@
-# quiz_ulun
+# 📱 Quiz Ulun
 
-A new Flutter project.
+Aplikasi kuis sederhana berbasis **Flutter** yang dibuat untuk memenuhi tugas praktikum **Pemrograman Mobile 1 (PM1)**.  
+Aplikasi ini berfungsi untuk menguji pengetahuan umum pengguna dengan tampilan yang bersih, responsif, dan mendukung **Light & Dark Theme**.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 👨‍💻 A. Identitas Pengembang
 
-A few resources to get you started if this is your first Flutter project:
+| Keterangan | Detail |
+|-------------|---------|
+| **Nama** | Azlinsyah Fadhilah M. |
+| **NIM** | 231401013 |
+| **Lab** | Pemrograman Mobile 1 (PM1) |
+| **Program Studi** | Ilmu Komputer – Universitas Sumatera Utara |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧩 B. Nama Aplikasi
+
+**Quiz Ulun**
+
+---
+
+## 📘 C. Deskripsi Aplikasi
+
+**Quiz Ulun** adalah aplikasi kuis berbasis Flutter yang memungkinkan pengguna:
+- Menginput **Nama dan NIM**
+- Menjawab soal pilihan ganda (A–E)
+- Mendapatkan skor akhir berupa jumlah **jawaban benar dan salah**
+- Mengganti **tema terang dan gelap (Light/Dark Mode)**
+- Menampilkan halaman hasil setelah menyelesaikan kuis
+
+### 🎯 Fitur Utama:
+- Desain **responsif & interaktif**
+- Navigasi antar halaman: *Home → Quiz → Hasil*
+- Tampilan warna otomatis menyesuaikan tema
+- Sistem penilaian real-time
+- Mendukung **custom font (Poppins)** agar tampilan lebih modern
+
+---
+
+## 🛠️ D. Teknologi yang Digunakan
+
+- **Flutter SDK 3.x**
+- **Dart Programming Language**
+- **Material Design 3 (useMaterial3: true)**
+- **StatefulWidget & Navigator**
+- **Custom Font:** Poppins (Google Fonts)
+
+---
+
+## 💡 E. Struktur Folder Proyek
+
