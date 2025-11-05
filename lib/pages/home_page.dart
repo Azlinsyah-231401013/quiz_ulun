@@ -36,59 +36,69 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Masukkan Identitas Kamu",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: _name,
-              decoration: const InputDecoration(
-                labelText: "Nama Lengkap",
-                border: OutlineInputBorder(),
+        child: SingleChildScrollView( // biar aman di layar kecil
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // 🔹 Tambahkan logo di sini
+              Image.asset(
+                'assets/images/quiz_banner.png',
+                height: 140,
+                fit: BoxFit.contain,
               ),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: _nim,
-              decoration: const InputDecoration(
-                labelText: "NIM",
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 24),
-            ElevatedButton(
-              onPressed: () {
-                if (_name.text.isEmpty || _nim.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Nama & NIM wajib diisi")),
-                  );
-                  return;
-                }
+              const SizedBox(height: 24),
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => QuizPage(
-                      name: _name.text,
-                      nim: _nim.text,
+              const Text(
+                "Masukkan Identitas Kamu",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _name,
+                decoration: const InputDecoration(
+                  labelText: "Nama Lengkap",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                controller: _nim,
+                decoration: const InputDecoration(
+                  labelText: "NIM",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  if (_name.text.isEmpty || _nim.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Nama & NIM wajib diisi")),
+                    );
+                    return;
+                  }
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => QuizPage(
+                        name: _name.text,
+                        nim: _nim.text,
+                      ),
                     ),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                ),
+                child: const Text(
+                  "Mulai Math Quiz",
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
-              child: const Text(
-                "Mulai Math Quiz",
-                style: TextStyle(fontSize: 18),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
