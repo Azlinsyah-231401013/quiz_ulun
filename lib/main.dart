@@ -3,20 +3,34 @@ import 'pages/home_page.dart';
 
 void main() => runApp(const QuizUlunApp());
 
-class QuizUlunApp extends StatelessWidget {
+class QuizUlunApp extends StatefulWidget {
   const QuizUlunApp({super.key});
+
+  @override
+  State<QuizUlunApp> createState() => _QuizUlunAppState();
+}
+
+class _QuizUlunAppState extends State<QuizUlunApp> {
+  ThemeMode _themeMode = ThemeMode.light; // default mode
+
+  void toggleTheme() {
+    setState(() {
+      _themeMode =
+          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Quiz Ulun',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.indigo,
-          brightness: Brightness.light, // ✅ tambahkan ini
+          brightness: Brightness.light,
         ),
         useMaterial3: true,
       ),
@@ -24,11 +38,15 @@ class QuizUlunApp extends StatelessWidget {
         brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.indigo,
-          brightness: Brightness.dark, // ✅ tambahkan ini juga
+          brightness: Brightness.dark,
         ),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      // ✅ kirim parameter yang dibutuhkan ke HomePage
+      home: HomePage(
+        onToggleTheme: toggleTheme,
+        isDarkMode: _themeMode == ThemeMode.dark,
+      ),
     );
   }
 }

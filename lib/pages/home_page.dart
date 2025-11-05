@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'quiz_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final VoidCallback onToggleTheme;
+  final bool isDarkMode;
+
+  const HomePage({
+    super.key,
+    required this.onToggleTheme,
+    required this.isDarkMode,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -10,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final _name = TextEditingController();
-  final _nim  = TextEditingController();
+  final _nim = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +25,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Quiz Ulun"),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(
+              widget.isDarkMode ? Icons.light_mode : Icons.dark_mode,
+            ),
+            onPressed: widget.onToggleTheme,
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
