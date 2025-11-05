@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
+import 'pages/quiz_page.dart';
+import 'pages/result_page.dart';
 
 void main() => runApp(const QuizUlunApp());
 
@@ -11,7 +13,7 @@ class QuizUlunApp extends StatefulWidget {
 }
 
 class _QuizUlunAppState extends State<QuizUlunApp> {
-  ThemeMode _themeMode = ThemeMode.light; // default mode
+  ThemeMode _themeMode = ThemeMode.light;
 
   void toggleTheme() {
     setState(() {
@@ -28,21 +30,15 @@ class _QuizUlunAppState extends State<QuizUlunApp> {
       themeMode: _themeMode,
       theme: ThemeData(
         brightness: Brightness.light,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
-          brightness: Brightness.light,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.indigo,
-          brightness: Brightness.dark,
-        ),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Colors.indigo, brightness: Brightness.dark),
         useMaterial3: true,
       ),
-      // ✅ kirim parameter yang dibutuhkan ke HomePage
       home: HomePage(
         onToggleTheme: toggleTheme,
         isDarkMode: _themeMode == ThemeMode.dark,
