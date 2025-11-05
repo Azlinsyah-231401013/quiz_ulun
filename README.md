@@ -50,5 +50,4 @@ Aplikasi ini berfungsi untuk menguji pengetahuan umum pengguna dengan tampilan y
 
 ---
 
-## 💡 E. Struktur Folder Proyek
 
